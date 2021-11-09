@@ -1,0 +1,1 @@
+start wt 'python script.py script1 ; split-pane -H python script.py script2 ; split-pane python script.py script3 ; mf left ; split-pane -H python script.py script4 ; mf right ; split-pane -H python script.py script5'
