@@ -1,6 +1,5 @@
 import random
 import time
-from routes import *
 import os
 import re
 
@@ -18,30 +17,21 @@ def create_ingredients(path, name, time_for_cooking, count):
 def join_ingredients(path, ingredients, name, time_for_cooking, count):
     items = os.listdir(path)
     temp_ingredients = []
-    # print('join', items)
-    # print(path)
-    # print(name)
-    # print(time_for_cooking)
-    # print(count)
-    # print(ingredients)
-    # print(re.match('red', items[0]))
     for ingredient in ingredients:
         for item in items:
-            # print(re.match(ingredient, item))
             if re.match(ingredient, item):
-                print('find', item)
+                # print('find', item)
                 temp_ingredients.append(item)
                 break
 
     if len(temp_ingredients) == len(ingredients):
         for temp_ingredient in temp_ingredients:
-            print(f'{path}\\{temp_ingredient}')
             os.remove(f'{path}\\{temp_ingredient}')
-        print('deleted')
         create_ingredients(path, name, time_for_cooking, count)
+        print(count, name, 'created')
     else:
-        print('not enough ingredients')
-        time.sleep(time_for_cooking)  # временно
+        print('not enough ingredients', ingredients, 'for', name)
+        time.sleep(time_for_cooking)
 
 
 # join_ingredients(start_storage, ['muka', 'test', 'lemon'], 'box', 4, 5)

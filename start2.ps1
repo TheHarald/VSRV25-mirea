@@ -1,1 +1,0 @@
-start wt 'python delivery_in_storage.py ; split-pane -H python move_from_storage.py ; split-pane python cacao_furnace.py '
